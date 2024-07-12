@@ -40,7 +40,13 @@ func parseRankingDataList(rows *sql.Rows) (*types.List[*ranking_types.RankingRan
 
 		result.PrincipalID = types.NewPID(userPid)
 		result.UpdateTime.FromTimestamp(time.Now()) // todo: fix
-
+		var buf []byte
+		err = Postgres.QueryRow(`SELECT "common_data" FROM "common_datas" WHERE "owner_pid" = $1`, userPid).Scan(&buf)
+		if err != nil {
+			fmt.Printf("couldnt find common data")
+			return nil, err
+		}
+		result.CommonData.Value = buf
 		results.Append(result)
 	}
 
