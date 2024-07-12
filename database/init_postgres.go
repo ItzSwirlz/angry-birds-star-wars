@@ -14,7 +14,7 @@ func initPostgres() {
 		update_mode integer,
 		groups bytea,
 		param bigint,
-		created_at bigint,
+		updated_at bigint,
 		PRIMARY KEY (unique_id, owner_pid, category)
 	)`)
 	if err != nil {
@@ -26,7 +26,7 @@ func initPostgres() {
 		unique_id bigserial,
 		owner_pid integer,
 		common_data bytea,
-		created_at bigint,
+		updated_at bigint,
 		PRIMARY KEY (unique_id, owner_pid)
 	)`)
 	if err != nil {

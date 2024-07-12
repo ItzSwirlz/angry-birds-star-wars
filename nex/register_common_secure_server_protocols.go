@@ -17,6 +17,7 @@ func registerCommonSecureServerProtocols() {
 	rankingProtocol := ranking.NewProtocol()
 	globals.SecureEndpoint.RegisterServiceProtocol(rankingProtocol)
 	ranking_protocol := common_ranking.NewCommonProtocol(rankingProtocol)
+	ranking_protocol.GetRankingsAndCountByCategoryAndRankingOrderParam = database.GetRankingsAndCountByCategoryAndRankingOrderParam
 	ranking_protocol.UploadCommonData = database.UploadCommonData
-	// TODO: UploadScore
+	ranking_protocol.InsertRankingByPIDAndRankingScoreData = database.InsertRankingByPIDAndRankingScoreData
 }

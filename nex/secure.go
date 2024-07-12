@@ -18,15 +18,15 @@ func StartSecureServer() {
 	globals.SecureEndpoint.AccountDetailsByPID = globals.AccountDetailsByPID
 	globals.SecureEndpoint.AccountDetailsByUsername = globals.AccountDetailsByUsername
 	globals.SecureServer.BindPRUDPEndPoint(globals.SecureEndpoint)
-	globals.SecureServer.ByteStreamSettings.UseStructureHeader = true
+	// globals.SecureServer.ByteStreamSettings.UseStructureHeader = true
 
-	globals.SecureServer.LibraryVersions.SetDefault(nex.NewLibraryVersion(3, 2, 1))
-	globals.SecureServer.AccessKey = "fbae7416"
+	globals.SecureServer.LibraryVersions.SetDefault(nex.NewLibraryVersion(3, 4, 0))
+	globals.SecureServer.AccessKey = "38dd2953"
 
 	globals.SecureEndpoint.OnData(func(packet nex.PacketInterface) {
 		request := packet.RMCMessage()
 
-		fmt.Println("======= Angry Birds Star Wars 3DS - Secure =======")
+		fmt.Println("======= ABSW-U - Secure =======")
 		fmt.Printf("Protocol ID: %#v\n", request.ProtocolID)
 		fmt.Printf("Method ID: %#v\n", request.MethodID)
 		fmt.Println("==================================================")

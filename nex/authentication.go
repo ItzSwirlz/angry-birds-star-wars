@@ -19,15 +19,15 @@ func StartAuthenticationServer() {
 	globals.AuthenticationEndpoint.AccountDetailsByPID = globals.AccountDetailsByPID
 	globals.AuthenticationEndpoint.AccountDetailsByUsername = globals.AccountDetailsByUsername
 	globals.AuthenticationServer.BindPRUDPEndPoint(globals.AuthenticationEndpoint)
-	globals.AuthenticationServer.ByteStreamSettings.UseStructureHeader = true
+	// globals.AuthenticationServer.ByteStreamSettings.UseStructureHeader = true
 
-	globals.AuthenticationServer.LibraryVersions.SetDefault(nex.NewLibraryVersion(3, 2, 1))
-	globals.AuthenticationServer.AccessKey = "fbae7416"
+	globals.AuthenticationServer.LibraryVersions.SetDefault(nex.NewLibraryVersion(3, 4, 0))
+	globals.AuthenticationServer.AccessKey = "38dd2953"
 
 	globals.AuthenticationEndpoint.OnData(func(packet nex.PacketInterface) {
 		request := packet.RMCMessage()
 
-		fmt.Println("======= Angry Birds Star Wars 3DS - Auth =======")
+		fmt.Println("======= ABSW-U - Auth =======")
 		fmt.Printf("Protocol ID: %#v\n", request.ProtocolID)
 		fmt.Printf("Method ID: %#v\n", request.MethodID)
 		fmt.Println("================================================")
